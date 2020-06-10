@@ -18,23 +18,27 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#">To Shopping</a></li>
-                <li><a href="#">To Edit</a></li>
-                <li><a href="#">To Delete</a></li>
+                <li><a (click)='onAddToShoppingList()' style="cursor: pointer;">To Shopping List</a></li>
+                <li><a style="cursor: pointer;" (click) = "onEditRecipe()">To Edit</a></li>
+                <li><a style="cursor: pointer;" (click) = "onDeleteRecipe()">To Delete</a></li>
             </ul>
         </div>
     </div>
 </div>
-
+<br>
 <div class="row">
     <div class="col-xs-12">
         {{recipe.description}}
     </div>
 </div>
-
+<br>
 <div class="row">
     <div class="col-xs-12">
-        Ingredients
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor = 'let ingredients of recipe.ingredients'>
+                {{ingredients.name}} - {{ingredients.amount}}
+            </li>
+        </ul>
     </div>
 </div>
 
