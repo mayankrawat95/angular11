@@ -10,7 +10,7 @@ export class RecipeService{
 recipesChanged = new Subject<Recipe[]>();
  
 
-  private  recipes : Recipe[] = [
+ /* private  recipes : Recipe[] = [
         new Recipe(' Pizza',
         'Thin Crust Cheez burst Pizza',
         'https://icon2.cleanpng.com/20180302/xlw/kisspng-pizza-pizza-chophouse-restaurant-italian-cuisine-potato-pizza-5a9926b1178071.2448808115199863530963.jpg',
@@ -27,8 +27,16 @@ recipesChanged = new Subject<Recipe[]>();
           new Ingredient('Meat', 1)
         ])
       ];
+      */
+
+      private recipes: Recipe[] = [];
 
       constructor(private slService: ShoppingListService){}
+
+      setRecipes(recipes: Recipe[]){
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+      }
 
       getRecipes(){
           return this.recipes.slice();
