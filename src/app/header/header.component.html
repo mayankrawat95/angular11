@@ -9,6 +9,9 @@
                 <li routerLinkActive = 'active'><a  routerLink = "/recipes" *ngIf = "isAuthenticated">Recipes</a></li>
                 <li routerLinkActive = 'active'><a  routerLink = "/auth" *ngIf = "!isAuthenticated">Authenticate</a></li>
                 <li routerLinkActive = 'active'><a  routerLink = "/shopping-list" >Shopping List</a></li>
+                <li routerLinkActive = 'active'><a  routerLink = "/chart" *ngIf = "isAuthenticated">My Chart</a></li>
+                <li routerLinkActive = 'active'><a  routerLink = "/profile" *ngIf = "isAuthenticated">My Profile</a></li>
+                <li routerLinkActive = 'active'><a  routerLink = "/reset" *ngIf = "isAuthenticated">Reset Password</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
