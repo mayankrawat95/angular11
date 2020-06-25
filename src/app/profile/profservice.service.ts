@@ -9,7 +9,7 @@ export class ProfserviceService {
 
   profileChanged = new Subject<Profile>();
 
-  public profile: Profile =  new Profile('Default', '11/1/2000', 'default', 'male')
+  public profile: Profile =  new Profile('', '', '', '')
 
   constructor() { }
 
