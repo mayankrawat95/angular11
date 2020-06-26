@@ -16,6 +16,7 @@ export class ResetPasswordComponent implements OnInit {
  p2: string;
  pwdchanged: string;
  error: string;
+ SamePwd: string;
 
   constructor(private resetPWDservice: ResetPwdService, private router: Router) { }
 
@@ -24,15 +25,20 @@ export class ResetPasswordComponent implements OnInit {
 
   onSubmit(form: NgForm){
     const password = form.value.password;
-    
+    const password1 = form.value.password1;
     console.log(password);
 
-    this.resetPWDservice.changePwd(password).subscribe(response => {
-      console.log(response);
-      this.pwdchanged = "Password changed successfully";
-    }, errorMessage => {
-      this.error = "There is an Error";
-    })
+    if(password === password1){
+      this.resetPWDservice.changePwd(password).subscribe(response => {
+        console.log(response);
+        this.pwdchanged = "Password changed successfully";
+      }, errorMessage => {
+        this.error = "There is an Error";
+      })
+    }else{
+        this.SamePwd = "Change password and Confirm password must be same"
+    }
+    
 
     //this.router.navigate(['/recipes']);
 
