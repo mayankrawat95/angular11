@@ -1,21 +1,22 @@
-<p>Profile Name: <b>{{profileService.profile.name}}</b></p>
+<p>Profile Name: <b>{{name1}}</b></p>
 <br>
-<p>Date of Birth: <b>{{profileService.profile.DOB}}</b></p>
+<p>Date of Birth: <b>{{DOB1}}</b></p>
 <br>
-<p>Email: <b>{{profileService.profile.Email}}</b></p>
+<p>Email: <b>{{email1}}</b></p>
 <br>
-<p>Gender: <b>{{profileService.profile.Gender}}</b></p>
+<p>Gender: <b>{{gender1}}</b></p>
 
-<button class = "btn btn-primary" (click) = "showForm()">Edit Form</button>
-
+<!--<button class = "btn btn-primary" (click) = "showForm()">Edit Form</button>-->
+<button class = "btn btn-primary" (click) = "showForm(f)">Edit Form</button>
 
 <div *ngIf = "FormVisibility">
 <form (ngSubmit) = "onSubmit(f)" #f = "ngForm">
+    
     <div class="row">
         <div class="col-xs-12">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" class="form-control" name = "name" [(ngModel)] = "name1" required>
+                <input type="text" id="name" class="form-control" name = "name" ngModel = {{name1}}  required>
                
             </div>
         </div>
@@ -25,7 +26,7 @@
         <div class="col-xs-12">
             <div class="form-group">
                 <label for="DOB">DOB</label>
-                <input type="text" id="DOB" class="form-control" name = "DOB" [(ngModel)] = "DOB1" required>
+                <input type="text" id="DOB" class="form-control" name = "DOB" ngModel = {{DOB1}} required>
             </div>
         </div>
     </div>
@@ -34,7 +35,7 @@
             <div class="col-xs-12">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" id="email" class="form-control" name = "email" [(ngModel)] = "email1" required email>
+                    <input type="text" id="email" class="form-control" name = "email" ngModel = {{email1}} required email>
                 </div>
             </div>
         </div>
@@ -43,14 +44,14 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="gender">Gender</label>
-                        <input type="text" id="gender" class="form-control" name = "gender" [(ngModel)] = "gender1" required>
+                        <input type="text" id="gender" class="form-control" name = "gender" ngModel = {{gender1}}  required>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-success" type="submit" (click)="onSubmit()"  [disabled]="!f.valid">Submit</button>
+                    <button class="btn btn-success" type="submit" [disabled]="!f.valid">Submit</button>
                 </div>
             </div>
 
