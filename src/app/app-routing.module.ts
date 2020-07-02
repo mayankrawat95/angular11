@@ -22,11 +22,11 @@ const appRoutes: Routes = [
         {path: ':id', component: RecipeDetailComponent, resolve: [RecipeResolverService]},
         {path: ':id/edit', component: RecipeEditComponent, resolve: [RecipeResolverService]}
     ]},
-    {path: 'shopping-list', component: ShoppingListComponent},
+    {path: 'shopping-list', component: ShoppingListComponent, canActivate: [AuthGuard]},
     {path: 'auth', component: AuthComponent},
-    {path: 'chart', component: ChartComponent},
-    {path: 'profile', component: ProfileComponent},
-    {path: 'reset', component: ResetPasswordComponent}
+    {path: 'chart', component: ChartComponent, canActivate: [AuthGuard]},
+    {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+    {path: 'reset', component: ResetPasswordComponent, canActivate: [AuthGuard]}
 ]
 
 @NgModule({

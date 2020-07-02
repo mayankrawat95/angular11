@@ -14,6 +14,8 @@ export class AuthComponent{
 isLoginMode = true;
 isLoading = false;
 error = null;
+clone: string;
+
 
 constructor(private authService: AuthService, 
   private router: Router, 
@@ -27,6 +29,7 @@ onSubmit(form: NgForm){
   if(!form.valid){
     return;
   }
+  this.clone = form.value.email;
   const email = form.value.email;
   const password = form.value.password;
 
@@ -46,6 +49,7 @@ onSubmit(form: NgForm){
     console.log(response);
     this.isLoading = false;
     this.router.navigate(['/recipes']);
+   
   },
   errorMessage => {
     console.log(errorMessage);
@@ -56,10 +60,11 @@ onSubmit(form: NgForm){
   });
 
 
-  form.reset();
+  
 }
   onErrorHandling(){
     this.error = null;
+    
   }
 
 
