@@ -32,6 +32,7 @@ export class ResetPasswordComponent implements OnInit {
       this.resetPWDservice.changePwd(password).subscribe(response => {
         console.log(response);
         this.pwdchanged = "Password changed successfully";
+        form.reset();
       }, errorMessage => {
         this.error = "There is an Error";
       })

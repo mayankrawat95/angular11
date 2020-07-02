@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
  email1: string;
  gender1: string;
  profile: Profile;
+ 
+ ;
 
 
   FormVisibility = false;
